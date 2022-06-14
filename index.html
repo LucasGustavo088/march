@@ -1,14 +1,14 @@
 <script>
 
-let diferença = dateDiferencaEmDias(new Date(), new Date("14-06-2022"));
+    let diferença = dateDiferencaEmDias(new Date(), new Date(2023, 03, 25));
 
     function dateDiferencaEmDias(a, b) {
-   // Descartando timezone e horário de verão
-   var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-   var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+        // Descartando timezone e horário de verão
+        var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+        var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
         return Math.floor((utc2 - utc1) / ( 1000 * 60 * 60 * 24) );
     }
 
-    document.write(diferença);
+    document.write("<h1>Faltam " + diferença + " dias</h1>");
 </script>
