@@ -4,27 +4,63 @@
 <body>
     <style>
         .parallax-window {
-            min-height: 400px;
+            min-height: 800px;
             background: transparent;
         }
 
         body {
             color: #fff !important;
         }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        #qr-code-div {
+            margin: 100px auto;
+            width: 400px;
+        }
+
+        @media only screen and (max-width: 981px) {
+            h2 {
+                font-size: 4rem;
+            }
+            body {
+                background-color: black;
+            }
+            #qr-code-div {
+                margin: 200px auto;
+                width: 400px;
+            }
+            #title-page-div {
+                padding-top: 50px;
+            }
+            /* .parallax-window {
+                height: 1650px;
+            } */
+            #or-use-key-h2 {
+                padding-top: 136px;
+            }
+        }
     </style>
-    <div class="container-row" class="parallax-window" data-parallax="scroll" data-bleed="10" data-speed="0.5"  data-natural-height="1400" data-parallax="scroll" data-image-src="images/background_2.JPG">
-        <div>
-            <h1 id="title-page" style="text-align: center; font-size: 10rem;"></h1>
-        </div>
-        <div style="margin: 100px auto;width: 400px">
-            <img src="qrcode-pix.png">
-            <h2 style="font-size: 2rem; text-align: center;">ou utilize a chave pix <strong>11987050210</strong></h2>
-    </div>
-    <div class="container" style="margin-top: 100px; height: 100px;">
-        <h2 style="font-size: 2rem; text-align: center;">Vamos ficar muito felizes com o seu presente!</h2>
-    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+            $('#ios-notice').removeClass('hidden');
+            console.log($(window).height() * 0.7 | 0 );
+
+                $('.parallax-window').height( $(window).height() * 1.0 | 0 );
+            } else {
+            $(window).resize(function(){
+                // var parallaxHeight = Math.max($(window).height() * 0.7, 200) | 0;
+                // console.log(parallaxHeight);
+                // $('.parallax-window').height(parallaxHeight);
+            }).trigger('resize');
+            }
+        });
+        </script>
     <script src="./parallax/parallax.min.js"></script>
     <script>
         
@@ -40,10 +76,22 @@
             }
             $("#title-page").html(`Faltam ${differenceDays} dias`);
 
-            $('.parallax-window').parallax({imageSrc: './images/background_2.jpg'});
+            // $('.parallax-window').parallax({imageSrc: './images/background_2.jpg'});
+            $('.parallax-window-1').parallax({imageSrc: './images/background_1.jpg'});
         });
 
     </script>
-
+    <div class="parallax-window" data-parallax="scroll" data-bleed="10" data-speed="0.2"  data-natural-height="1400" data-parallax="scroll" data-image-src="images/background_2.JPG">
+        <div id="title-page-div">
+            <h1 id="title-page" style="text-align: center; font-size: 10rem;"></h1>
+        </div>
+        <div id="qr-code-div">
+            <img src="qrcode-pix.png">
+            <h2 id="or-use-key-h2" style="text-align: center;">ou utilize a chave pix <strong>11987050210</strong></h2>
+    </div>
+    <div class="container" style="margin-top: 100px; height: 100px;">
+        <h2 style="text-align: center;">Vamos ficar muito felizes com o seu presente!</h2>
+    </div>
+    <div class="parallax-window-1" data-parallax="scroll" data-bleed="10" data-speed="0.5"  data-natural-height="1400" data-parallax="scroll" data-image-src="images/background_1.JPG">
 </body>
 </html>
